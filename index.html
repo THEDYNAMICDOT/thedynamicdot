@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="The Dynamic Dot - Professional printing, graphic design, branding and digital creative services in Gandhinagar, Gujarat.">
   <title>The Dynamic Dot | Printing & Creative Solutions</title>
-  <link rel="icon" href="logo.png">
+  <link rel="icon" href="assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -68,8 +68,20 @@
     .feature h3{font-family:Montserrat;font-size:20px;margin-bottom:7px}
     .feature p{color:var(--muted);font-size:14px}
     .gallery{background:linear-gradient(180deg,#f7fbff,#eef8ff)}
-    .pamphlet{max-width:600px;margin:auto;background:#fff;padding:12px;border-radius:18px;box-shadow:0 20px 60px rgba(15,70,120,.16);border:1px solid var(--line)}
+    .pamphlet{max-width:600px;margin:0 auto 55px;background:#fff;padding:12px;border-radius:18px;box-shadow:0 20px 60px rgba(15,70,120,.16);border:1px solid var(--line)}
     .pamphlet img{width:100%;display:block;border-radius:10px}
+    .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .work-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(15,70,120,.08);transition:.2s;cursor:pointer}
+    .work-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(15,70,120,.14)}
+    .work-card img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+    .work-info{padding:18px 20px 20px}
+    .work-info h3{font-family:Montserrat;font-size:19px;margin-bottom:5px}
+    .work-info p{color:var(--muted);font-size:13px}
+    .modal{position:fixed;inset:0;background:rgba(3,20,40,.86);display:none;align-items:center;justify-content:center;padding:25px;z-index:100}
+    .modal.open{display:flex}
+    .modal-inner{position:relative;max-width:1100px;max-height:92vh;width:100%;display:flex;align-items:center;justify-content:center}
+    .modal img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:12px;box-shadow:0 20px 70px rgba(0,0,0,.35)}
+    .modal-close{position:absolute;right:-5px;top:-42px;border:0;background:#fff;color:var(--deep);width:38px;height:38px;border-radius:50%;font-size:23px;cursor:pointer}
     .contact{background:#073f82;color:#fff;position:relative;overflow:hidden}
     .contact:after{content:"";position:absolute;width:500px;height:500px;border:70px solid rgba(25,185,230,.12);border-radius:50%;right:-180px;top:-230px}
     .contact-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
@@ -84,8 +96,39 @@
     footer{background:#042d5d;color:#bcd3ea;padding:25px 0;font-size:13px}
     .footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
     .whatsapp{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:#16a34a;color:#fff;display:grid;place-items:center;font-size:27px;box-shadow:0 12px 28px rgba(0,0,0,.2)}
-    @media(max-width:900px){nav{display:none}.menu{display:block}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero{padding-top:55px}.service-grid{grid-template-columns:repeat(2,1fr)}.feature-grid{grid-template-columns:1fr}.hero-card{max-width:620px;margin:auto}}
+    @media(max-width:900px){nav{display:none}.menu{display:block}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero{padding-top:55px}.service-grid{grid-template-columns:repeat(2,1fr)}.feature-grid{grid-template-columns:1fr}.hero-card{max-width:620px;margin:auto}.work-grid{grid-template-columns:1fr}}
     @media(max-width:560px){.nav{height:68px}.brand img{width:175px}.hero{padding:45px 0}.hero p{font-size:16px}.ticks{grid-template-columns:1fr}.service-grid{grid-template-columns:1fr}.btn{width:100%}section{padding:65px 0}.contact-card{padding:20px}}
+  
+
+    .industries-pro{background:linear-gradient(180deg,#f7fbff 0%,#fff 100%)}
+    .industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .industry-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 22px 24px;min-height:190px;box-shadow:0 8px 24px rgba(15,70,120,.06);transition:.22s;overflow:hidden}
+    .industry-card:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;background:#edf7ff;right:-30px;bottom:-35px}
+    .industry-card:hover{transform:translateY(-5px);border-color:#a9ccef;box-shadow:0 16px 36px rgba(15,70,120,.12)}
+    .industry-icon{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;background:#eaf5ff;font-size:27px;margin-bottom:16px;position:relative;z-index:1}
+    .industry-card h3,.why-card h3,.strength-item h3{font-family:Montserrat,Arial,sans-serif;font-size:18px;margin-bottom:5px}
+    .industry-card p,.why-card p,.strength-item p{font-size:13px;color:var(--muted);line-height:1.55;position:relative;z-index:1}
+    .why-pro{background:#fff}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .why-card{display:flex;gap:17px;align-items:flex-start;background:linear-gradient(145deg,#fff,#f5faff);border:1px solid var(--line);border-radius:20px;padding:24px;transition:.2s}
+    .why-card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(15,70,120,.09)}
+    .why-number{flex:none;width:48px;height:48px;border-radius:14px;background:var(--blue);color:#fff;display:grid;place-items:center;font-family:Montserrat;font-weight:800;font-size:14px;box-shadow:0 8px 18px rgba(7,87,168,.18)}
+    .strength-pro{background:linear-gradient(135deg,#073f82,#0757a8);color:#fff;position:relative;overflow:hidden}
+    .strength-pro:before{content:"";position:absolute;width:500px;height:500px;border:70px solid rgba(25,185,230,.12);border-radius:50%;right:-220px;top:-250px}
+    .strength-wrap{position:relative;z-index:1;display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+    .strength-intro .eyebrow{color:#9fe7fb}.strength-intro .eyebrow:before{background:#fff}.strength-intro h2{max-width:500px}.strength-intro p{color:#d8eafa;max-width:520px;margin-bottom:24px}.strength-intro .btn-primary{background:#fff;color:var(--blue);box-shadow:none}
+    .strength-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .strength-item{display:flex;gap:13px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:18px;backdrop-filter:blur(6px)}
+    .strength-item>span{width:32px;height:32px;flex:none;border-radius:10px;background:#fff;color:var(--blue);display:grid;place-items:center;font-weight:800}.strength-item h3{color:#fff;font-size:15px}.strength-item p{color:#d8eafa;font-size:12px}
+    @media(max-width:900px){.industry-grid,.why-grid{grid-template-columns:repeat(2,1fr)}.strength-wrap{grid-template-columns:1fr}.strength-list{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.industry-grid,.why-grid,.strength-list{grid-template-columns:1fr}.industry-card{min-height:auto}.strength-wrap{gap:35px}}
+
+    .visual-section{background:#fff}
+    .visual-section.alt{background:linear-gradient(180deg,#f7fbff,#eef7ff)}
+    .visual-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:14px;box-shadow:0 18px 50px rgba(15,70,120,.10);overflow:hidden}
+    .visual-card img{width:100%;height:auto;display:block;border-radius:16px}
+    .visual-note{text-align:center;color:var(--muted);font-size:14px;max-width:780px;margin:-25px auto 35px}
+    
   </style>
 </head>
 <body>
@@ -93,7 +136,7 @@
   <div class="container nav">
     <a class="brand" href="#home"><img src="assets/logo.png" alt="The Dynamic Dot logo"></a>
     <nav>
-      <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#gallery">Our Work</a><a href="#contact">Contact</a>
+      <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#industries">Industries</a><a href="#gallery">Our Work</a><a href="#contact">Contact</a>
       <a class="nav-cta" href="https://wa.me/919426487278?text=Hello%20The%20Dynamic%20Dot%2C%20I%20want%20to%20know%20about%20your%20services." target="_blank">WhatsApp</a>
     </nav>
     <button class="menu" onclick="document.querySelector('nav').style.display=document.querySelector('nav').style.display==='flex'?'none':'flex'" aria-label="Menu">☰</button>
@@ -118,7 +161,7 @@
 
 <section class="about" id="about">
   <div class="container about-grid">
-    <div class="about-art"><img src="pamphlet.png" alt="The Dynamic Dot services pamphlet"></div>
+    <div class="about-art"><img src="assets/pamphlet.png" alt="The Dynamic Dot services pamphlet"></div>
     <div class="about-copy">
       <div class="eyebrow">About The Dynamic Dot</div>
       <h3>The power of creativity in every dot.</h3>
@@ -180,14 +223,85 @@
   </div>
 </section>
 
+
+<section class="industries-pro" id="industries">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Industries We Serve</div>
+      <h2>Solutions for Every Industry</h2>
+      <p>Professional design, printing, branding and marketing solutions tailored to the needs of different industries.</p>
+    </div>
+    <div class="industry-grid">
+      <div class="industry-card"><span class="industry-icon">🏢</span><h3>Corporate</h3><p>Complete business stationery, branding & marketing materials.</p></div>
+      <div class="industry-card"><span class="industry-icon">🎓</span><h3>Schools</h3><p>School stationery, admission forms, uniforms, banners & events.</p></div>
+      <div class="industry-card"><span class="industry-icon">🏥</span><h3>Hospitals</h3><p>Patient forms, signage, stationery, promotional & awareness material.</p></div>
+      <div class="industry-card"><span class="industry-icon">🏠</span><h3>Real Estate</h3><p>Property brochures, hoardings, site boards, flyers & sales kits.</p></div>
+      <div class="industry-card"><span class="industry-icon">🍽️</span><h3>Restaurants</h3><p>Menus, packaging, takeaway bags, stickers, signage & branding.</p></div>
+      <div class="industry-card"><span class="industry-icon">🏭</span><h3>Manufacturers</h3><p>Product labels, packaging, catalogues, safety signage & corporate print.</p></div>
+      <div class="industry-card"><span class="industry-icon">🎪</span><h3>Events</h3><p>Invitations, backdrops, standees, certificates, lanyards & event kits.</p></div>
+      <div class="industry-card"><span class="industry-icon">🛍️</span><h3>Retail</h3><p>Shopping bags, tags, labels, promotional prints & point-of-sale branding.</p></div>
+      <div class="industry-card"><span class="industry-icon">🤝</span><h3>NGOs & More</h3><p>Campaign creatives, brochures, awareness material, forms & event branding.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="why-pro">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Why Choose Us</div>
+      <h2>Why Choose The Dynamic Dot?</h2>
+      <p>One reliable partner for design, print, branding and marketing — from the first idea to the final delivery.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-number">01</div><div><h3>One Stop Solution</h3><p>Design, printing, branding and marketing under one roof.</p></div></div>
+      <div class="why-card"><div class="why-number">02</div><div><h3>Premium Quality</h3><p>Carefully selected materials and professional production standards.</p></div></div>
+      <div class="why-card"><div class="why-number">03</div><div><h3>Competitive Rates</h3><p>Quality-focused solutions at practical and competitive prices.</p></div></div>
+      <div class="why-card"><div class="why-number">04</div><div><h3>Fast Turnaround</h3><p>Quick response and on-time delivery for your important projects.</p></div></div>
+      <div class="why-card"><div class="why-number">05</div><div><h3>Design + Print + Branding</h3><p>A complete workflow that keeps your brand consistent everywhere.</p></div></div>
+      <div class="why-card"><div class="why-number">06</div><div><h3>Customer Satisfaction</h3><p>Personal attention, clear communication and dependable support.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="strength-pro">
+  <div class="container">
+    <div class="strength-wrap">
+      <div class="strength-intro">
+        <div class="eyebrow">Our Strength</div>
+        <h2>Built on Quality, Creativity & Trust.</h2>
+        <p>We combine creative thinking with dependable production to deliver professional brand solutions that work in the real world.</p>
+        <a class="btn btn-primary" href="#contact">Let's Work Together</a>
+      </div>
+      <div class="strength-list">
+        <div class="strength-item"><span>✓</span><div><h3>Premium Quality</h3><p>Best materials and modern printing technology.</p></div></div>
+        <div class="strength-item"><span>✓</span><div><h3>Fast Delivery</h3><p>On-time delivery with clear project coordination.</p></div></div>
+        <div class="strength-item"><span>✓</span><div><h3>Creative Team</h3><p>Experienced professionals with fresh design ideas.</p></div></div>
+        <div class="strength-item"><span>✓</span><div><h3>Competitive Pricing</h3><p>Strong value without compromising on quality.</p></div></div>
+        <div class="strength-item"><span>✓</span><div><h3>One Stop Solution</h3><p>Design, Print, Branding & Marketing in one place.</p></div></div>
+        <div class="strength-item"><span>✓</span><div><h3>Pan India Service</h3><p>Serving clients across India with trust and reliability.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="gallery" id="gallery">
   <div class="container">
     <div class="section-head">
       <div class="eyebrow">Our Work</div>
       <h2>See What We Offer</h2>
-      <p>Your pamphlet is featured here. More projects can be added anytime.</p>
+      <p>Explore our printing, branding, packaging, gifting and display work. Tap any project to view it larger.</p>
     </div>
-    <div class="pamphlet"><img src="pamphlet.png" alt="The Dynamic Dot printing services pamphlet"></div>
+    <div class="pamphlet"><img src="assets/pamphlet.png" alt="The Dynamic Dot printing services pamphlet"></div>
+    <div class="work-grid">
+      <article class="work-card" onclick="openWork(this)"><img src="assets/event-branding.png" alt="Event branding and event kits"><div class="work-info"><h3>Event Branding & Kits</h3><p>Invitation cards, certificates, backdrops, event kits and lanyards.</p></div></article>
+      <article class="work-card" onclick="openWork(this)"><img src="assets/corporate-gifts.png" alt="Corporate gifts and branded accessories"><div class="work-info"><h3>Corporate Gifts & Accessories</h3><p>T-shirts, caps, mugs, gift sets, badges and branded accessories.</p></div></article>
+      <article class="work-card" onclick="openWork(this)"><img src="assets/office-printing.png" alt="Business printing materials"><div class="work-info"><h3>Business Printing</h3><p>Business cards, letterheads, envelopes, bill books, receipt books and ID cards.</p></div></article>
+      <article class="work-card" onclick="openWork(this)"><img src="assets/brochures-catalogues.png" alt="Brochures and catalogues"><div class="work-info"><h3>Brochures & Catalogues</h3><p>Brochures, catalogues, pamphlets, booklets, tri-folds and magazines.</p></div></article>
+      <article class="work-card" onclick="openWork(this)"><img src="assets/display-printing.png" alt="Display and signage printing"><div class="work-info"><h3>Display & Signage</h3><p>Flex banners, vinyl printing, sunpack, roll-up standees and light boards.</p></div></article>
+      <article class="work-card" onclick="openWork(this)"><img src="assets/packaging.png" alt="Packaging printing"><div class="work-info"><h3>Packaging Solutions</h3><p>Packaging boxes, labels, paper bags, non-woven bags, pouches and inserts.</p></div></article>
+      <article class="work-card" onclick="openWork(this)"><img src="assets/promotional-gifts.png" alt="Promotional gift products"><div class="work-info"><h3>Promotional Gifts</h3><p>Umbrellas, pens, diaries, calendars, writing pads and desk accessories.</p></div></article>
+      <article class="work-card" onclick="openWork(this)"><img src="assets/creative-branding.png" alt="Creative branding services"><div class="work-info"><h3>Creative & Brand Identity</h3><p>Logo design, social media posts, packaging design, print design and marketing creatives.</p></div></article>
+    </div>
   </div>
 </section>
 
@@ -212,6 +326,8 @@
 </section>
 </main>
 
+<div class="modal" id="workModal" onclick="closeWork(event)"><div class="modal-inner"><button class="modal-close" onclick="closeWork()" aria-label="Close">×</button><img id="modalImage" src="" alt="Expanded project"></div></div>
+
 <footer>
   <div class="container footer-row">
     <span>© <span id="year"></span> The Dynamic Dot. All rights reserved.</span>
@@ -219,6 +335,11 @@
   </div>
 </footer>
 <a class="whatsapp" href="https://wa.me/919426487278?text=Hello%20The%20Dynamic%20Dot" target="_blank" aria-label="WhatsApp">◉</a>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script>
+function openWork(card){document.getElementById('modalImage').src=card.querySelector('img').src;document.getElementById('modalImage').alt=card.querySelector('img').alt;document.getElementById('workModal').classList.add('open');document.body.style.overflow='hidden'}
+function closeWork(e){if(!e || e.target.id==='workModal' || e.target.classList.contains('modal-close')){document.getElementById('workModal').classList.remove('open');document.body.style.overflow=''}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeWork()});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
